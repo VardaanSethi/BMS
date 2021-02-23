@@ -1,0 +1,80 @@
+<div>
+    <select class="form-control" (change)="getTheaterId($event)">
+        <option selected>Select the Available Theaters Nearby</option>
+        <option *ngFor="let theater of theaters" value={{theater.theaterId}}>{{theater.theaterName}}</option>
+    </select>
+</div>
+<div class="mt-2">
+    <a type="button" class="btn btn-sm btn-outline-primary" (click)="getShowsByTheater()">Proceed</a>
+</div>
+
+<div class="mt-3" *ngIf="showsByTheater.length != 0">
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>Show No.</th>
+            <th>Show Timing</th>
+            <th>Book here</th>
+        </tr>
+        <tbody>
+            <tr *ngFor="let selectedShows of showsByTheater">
+                <td>{{selectedShows.ShowId }}</td>
+                <td>{{selectedShows.ShowTiming | date:"short" }}</td>
+                <td> <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#ticketSelection"
+                        (click)="getShowDetails(selectedShows.ShowId, selectedShows.ShowTiming)">Book</button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="pt-3" *ngIf="isAvailableShows && showsByTheater.length == 0">
+    <span class="text-danger">No Shows Available !</span>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ticketSelection" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" *ngIf="bookingDetails==null">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">How many tickets you want to book?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <select class="form-control" (change)="getSeatId($event)">
+                    <option selected>Select the number of seats to book</option>
+                    <option *ngFor="let seat of arrayOfSeats;let i = index" value={{i+1}}>{{i+1}}</option>
+                </select>
+                <span class="text-center mt-4">Total Amount : {{selectedSeatId * ticketPrice}}</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-outline-primary"
+                    (click)="bookingTicket(selectedSeatId, ticketPrice)">Pay Now</button>
+            </div>
+            <div *ngIf="selectedSeatId==null">
+                <p class="text-danger"> *Note - Please select some seats to proceed...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-dialog modal-dialog-centered" role="document" *ngIf="bookingDetails!=null && selectedSeatId!=null">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">CONGRATULATIONS</h5>
+            </div>
+            <div class="modal-body">
+                <h2>Your ticket is Booked !</h2>
+                <span>Show Number - {{bookingDetails.showId}}</span><br>
+                <span>Ticket Price - {{bookingDetails.ticketPrice}}</span><br>
+                <span>No of Seats - {{bookingDetails.seatNumber}}</span><br>
+                <span>Booked Date - {{bookingDetails.bookingDate | date:"short" }}</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-success" data-dismiss="modal" routerLink=''>Move to
+                    HOME</button>
+            </div>
+        </div>
+    </div>
+
+</div>

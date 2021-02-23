@@ -1,0 +1,14 @@
+<div class="d-flex">
+
+  <div class="pad-20" *ngFor="let movie of movies">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top poster-size" src="./../../assets/{{movie.movieId}}.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{movie.movieTitle}}</h5>
+        <p class="card-text">{{movie.movieDescription}}</p>
+        <a [routerLink]="['movie',movie.movieId]" class="btn btn-primary">More Info...</a>
+      </div>
+    </div>
+  </div>
+
+</div>
