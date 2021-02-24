@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookMyShowWebAPI.Service
+namespace BookMyShowWebAPI.Services
 {
     public interface IBookingService
     {
-        List<Booking> GetBookings();
-        Booking GetBookingById(int id);
+        IEnumerable<Booking> GetBookings();
+        Booking GetBooking(int id);
         int PostBooking(Booking booking);
     }
 }

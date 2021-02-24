@@ -8,7 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookMyShowWebAPI.Service
+namespace BookMyShowWebAPI.Services
 {
     public class ScreenService : IScreenService
     {
@@ -17,24 +17,20 @@ namespace BookMyShowWebAPI.Service
         {
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
         }
-        public Screen GetScreenById(int id)
+        public Screen GetScreen(int id)
         {
-            var sql = "SELECT * FROM Screens WHERE ScreenId = @id";
-            var screen = db.Query<Screen>(sql, new { bookingId = id }).FirstOrDefault();
-            return screen;
+            return db.Query<Screen>("SELECT * FROM Screens WHERE Id = @id", new { id = id }).SingleOrDefault();
         }
 
-        public List<Screen> GetScreens()
+        public IEnumerable<Screen> GetScreens()
         {
-            var sql = "SELECT * FROM Screens";
-            var screenList = db.Query<Screen>(sql).ToList();
-            return screenList;
+            return db.Query<Screen>("SELECT * FROM Screens");
         }
 
         public object GetSeatsByTheater(int theaterId)
         {
-            var sql = "SELECT * FROM GetSeatsByTheater WHERE TheaterId = @theaterId";
-            var seatsByTheater = db.Query<object>(sql, new { theaterId = theaterId }).FirstOrDefault();
+            var sql = "SELECT NoOfSeats FROM Screens WHERE Id = @theaterId";
+            var seatsByTheater = db.Query<object>(sql, new { theaterId = theaterId }).SingleOrDefault();
             return seatsByTheater;
         }
     }

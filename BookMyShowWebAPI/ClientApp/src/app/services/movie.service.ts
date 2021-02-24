@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Movie } from '../Model/movie';
+import { Movie } from '../models/movie.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,10 +13,10 @@ export class MovieService {
   readonly baseURL = 'https://localhost:5001/api/movie';
 
   getMovies(){
-    return this.http.get<Movie[]>(this.baseURL);
+    return this.http.get(this.baseURL);
   }
 
-  getMovie(id:number):Observable<Movie>{
-    return this.http.get<Movie>(this.baseURL+`/${id}`);
+  getMovie(id:number){
+    return this.http.get(this.baseURL+`/${id}`);
   }
 }

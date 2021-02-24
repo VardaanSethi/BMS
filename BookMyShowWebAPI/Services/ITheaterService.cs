@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BookMyShowWebAPI.Service
 {
-    public interface IMovieService
+    public interface ITheaterService
     {
-        public List<Movie> GetMovies();
-        public Movie GetMovieById(int id);
+        public IEnumerable<Theater> GetTheaters();
+        public Theater GetTheater(int id);
     }
 }

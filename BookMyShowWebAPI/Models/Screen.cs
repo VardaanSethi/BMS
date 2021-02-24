@@ -9,7 +9,7 @@ namespace BookMyShowWebAPI.Models
     public class Screen
     {
         [Key]
-        public int ScreenId { get; set; }
+        public int Id { get; set; }
         public int TheaterId { get; set; }
         public int MovieId { get; set; }
         public int NoOfSeats { get; set; }

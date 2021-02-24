@@ -8,9 +8,9 @@ export class ScreenService {
 
   constructor(private http:HttpClient) { }
 
-  readonly baseURL = 'https://localhost:5001/api/screen/seatsbytheater';
+  readonly baseURL = 'https://localhost:5001/api/screen/theater';
 
   getNumberOfSeats(theaterId){
-    return this.http.get<{NoOfSeats:number, TheaterId:number}>(`${this.baseURL}/${theaterId}`);
+    return this.http.get(`${this.baseURL}/${theaterId}`);
   }
 }

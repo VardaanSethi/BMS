@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { TheaterService } from 'src/app/service/theater.service';
-import { Theater } from 'src/app/Model/theater';
-import { ShowService } from 'src/app/service/show.service';
-import { ScreenService } from 'src/app/service/screen.service';
-import { Booking } from 'src/app/Model/booking';
-import { BookingService } from 'src/app/service/booking.service';
+import { TheaterService } from 'src/app/services/theater.service';
+import { Theater } from 'src/app/models/theater.model';
+import { ShowService } from 'src/app/services/show.service';
+import { ScreenService } from 'src/app/services/screen.service';
+import { Booking } from 'src/app/models/booking.model';
+import { BookingService } from 'src/app/services/booking.service';
 
 @Component({
   selector: 'app-show-theater',
@@ -12,12 +12,12 @@ import { BookingService } from 'src/app/service/booking.service';
   styleUrls: ['./show-theater.component.sass']
 })
 export class ShowTheaterComponent implements OnInit {
-  theaters: Theater[];
+  theaters: any;
   selectedTheaterId: number;
   showsByTheater: any = [];
   @Input() movieId: number;
   isAvailableShows: boolean = false;
-  seats: { NoOfSeats: number, TheaterId: number };
+  seats;
   noOfAvailableSeats: number;
   arrayOfSeats: number[] = new Array()
   selectedSeatId: number;
@@ -31,16 +31,16 @@ export class ShowTheaterComponent implements OnInit {
 
   ngOnInit(): void {
     this.theaterService.getTheaters().subscribe(
-      response => {
-        this.theaters = response;
+      data => {
+        this.theaters = data;
       }
     )
   }
   getTheaterId(event) {
     this.selectedTheaterId = event.target.value;
     this.screenService.getNumberOfSeats(this.selectedTheaterId).subscribe(
-      response => {
-        this.seats = response;
+      data => {
+        this.seats = data;
         this.noOfAvailableSeats = <number>(this.seats.NoOfSeats);
         this.arrayOfSeats = new Array(this.noOfAvailableSeats);
       }
@@ -49,8 +49,9 @@ export class ShowTheaterComponent implements OnInit {
 
   getShowsByTheater() {
     this.showsService.getShowsByTheater(this.selectedTheaterId, this.movieId).subscribe(
-      response => {
-        this.showsByTheater = response;
+      data => {
+        this.showsByTheater = data;
+        console.log(this.showsByTheater);
         this.isAvailableShows = true;
       }
     )
@@ -60,16 +61,21 @@ export class ShowTheaterComponent implements OnInit {
     this.selectedSeatId = event.target.value;
   }
 
-  getShowDetails(showId, showTiming) {
-    this.selectedShowId = showId;
-    this.selectedShowTime = showTiming;
+  getShowDetails(id, timing) {
+    this.selectedShowId = id;
+    this.selectedShowTime = timing;
   }
 
   bookingTicket(selectedSeatId, ticketPrice) {
-    var booking = new Booking(this.selectedTheaterId, this.selectedShowId, selectedSeatId * ticketPrice, selectedSeatId, this.selectedShowTime);
+    console.log(this.selectedTheaterId, this.selectedShowId, selectedSeatId * ticketPrice, this.selectedShowTime );
+    var booking = new Booking({theaterId : this.selectedTheaterId, 
+                               showId : this.selectedShowId, 
+                               ticketPrice : selectedSeatId * ticketPrice, 
+                               seatNumber : selectedSeatId, 
+                               date : this.selectedShowTime});
     this.bookingService.postBooking(booking).subscribe(
-      response => {
-        this.bookedId = <number>response;
+      data => {
+        this.bookedId = <number>data;
         this.getAllBookings();
       }
     )
@@ -77,9 +83,8 @@ export class ShowTheaterComponent implements OnInit {
 
   getAllBookings(){
     this.bookingService.getBookings(this.bookedId).subscribe(
-      response=>{
-        this.bookingDetails = response;
-        console.log(this.bookingDetails);
+      data=>{
+        this.bookingDetails = data;
       }
     ) 
   }

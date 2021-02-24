@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookMyShowWebAPI.Models;
-using BookMyShowWebAPI.Service;
+using BookMyShowWebAPI.Services;
 
 namespace BookMyShowWebAPI.Controllers
 {
@@ -14,25 +14,25 @@ namespace BookMyShowWebAPI.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
-        private readonly IMovieService movie;
+        private readonly IMovieService Movie;
 
         public MovieController(IMovieService movie)
         {
-            this.movie = movie;
+            this.Movie = movie;
         }
 
         // GET: api/Movie
         [HttpGet]
         public IEnumerable<Movie> GetMovies()
         {
-            return movie.GetMovies();
+            return Movie.GetMovies();
         }
 
         // GET: api/Movie/5
         [HttpGet("{id}")]
         public Movie GetMovie(int id)
         {
-            return movie.GetMovieById(id);
+            return Movie.GetMovie(id);
         }
     }
 }

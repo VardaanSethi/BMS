@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from 'src/app/Model/movie';
-import { MovieService } from 'src/app/service/movie.service';
+import { Movie } from 'src/app/models/movie.model';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -9,7 +9,7 @@ import { MovieService } from 'src/app/service/movie.service';
   styleUrls: ['./movie-detail.component.sass']
 })
 export class MovieDetailComponent implements OnInit {
-  movie:Movie = null;
+  movie = null;
   isValid: boolean = false;
   constructor(private activeRoute:ActivatedRoute,
               private movieService:MovieService) { }
@@ -18,8 +18,8 @@ export class MovieDetailComponent implements OnInit {
     this.activeRoute.params.subscribe(
       params=>{
         this.movieService.getMovie(+params['id']).subscribe(
-          response=>{
-            this.movie = response;
+          data=>{
+            this.movie = data;
             this.isValid = true;
           }
         )

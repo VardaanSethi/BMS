@@ -1,5 +1,6 @@
 using BookMyShowWebAPI.Models;
 using BookMyShowWebAPI.Service;
+using BookMyShowWebAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

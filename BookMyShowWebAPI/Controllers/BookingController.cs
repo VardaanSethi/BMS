@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookMyShowWebAPI.Models;
-using BookMyShowWebAPI.Service;
+using BookMyShowWebAPI.Services;
 
 namespace BookMyShowWebAPI.Controllers
 {
@@ -14,32 +14,32 @@ namespace BookMyShowWebAPI.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-        private readonly IBookingService booking;
+        private readonly IBookingService Booking;
 
         public BookingController(IBookingService booking)
         {
-            this.booking = booking;
+            this.Booking = booking;
         }
 
         // GET: api/Booking
         [HttpGet]
         public IEnumerable<Booking> GetBookings()
         {
-            return booking.GetBookings();
+            return Booking.GetBookings();
         }
 
         // GET: api/Booking/5
         [HttpGet("{id}")]
         public IActionResult GetBooking(int id)
         {
-            return Ok (booking.GetBookingById(id));
+            return Ok (Booking.GetBooking(id));
         }
 
         // POST: api/Booking
         [HttpPost]
         public IActionResult PostBooking(Booking booking)
         {
-            return Ok(this.booking.PostBooking(booking));
+            return Ok(this.Booking.PostBooking(booking));
         }
     }
 }

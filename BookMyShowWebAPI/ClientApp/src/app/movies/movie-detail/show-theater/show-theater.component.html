@@ -1,7 +1,7 @@
 <div>
     <select class="form-control" (change)="getTheaterId($event)">
         <option selected>Select the Available Theaters Nearby</option>
-        <option *ngFor="let theater of theaters" value={{theater.theaterId}}>{{theater.theaterName}}</option>
+        <option *ngFor="let theater of theaters" value={{theater.id}}>{{theater.name}}</option>
     </select>
 </div>
 <div class="mt-2">
@@ -16,11 +16,11 @@
             <th>Book here</th>
         </tr>
         <tbody>
-            <tr *ngFor="let selectedShows of showsByTheater">
-                <td>{{selectedShows.ShowId }}</td>
-                <td>{{selectedShows.ShowTiming | date:"short" }}</td>
+            <tr *ngFor="let selectedShow of showsByTheater">
+                <td>{{selectedShow.Id}}</td>
+                <td>{{selectedShow.Timing | date:"short" }}</td>
                 <td> <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#ticketSelection"
-                        (click)="getShowDetails(selectedShows.ShowId, selectedShows.ShowTiming)">Book</button> </td>
+                        (click)="getShowDetails(selectedShow.Id, selectedShow.Timing)">Book</button> </td>
             </tr>
         </tbody>
     </table>
@@ -53,7 +53,7 @@
                     (click)="bookingTicket(selectedSeatId, ticketPrice)">Pay Now</button>
             </div>
             <div *ngIf="selectedSeatId==null">
-                <p class="text-danger"> *Note - Please select some seats to proceed...</p>
+                <p class="text-danger ml-2"> *Note - Please select some seats to proceed...</p>
             </div>
         </div>
     </div>
@@ -68,7 +68,7 @@
                 <span>Show Number - {{bookingDetails.showId}}</span><br>
                 <span>Ticket Price - {{bookingDetails.ticketPrice}}</span><br>
                 <span>No of Seats - {{bookingDetails.seatNumber}}</span><br>
-                <span>Booked Date - {{bookingDetails.bookingDate | date:"short" }}</span>
+                <span>Booked Date - {{bookingDetails.date | date:"short" }}</span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-success" data-dismiss="modal" routerLink=''>Move to

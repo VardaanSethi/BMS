@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookMyShowWebAPI.Models;
+using BookMyShowWebAPI.Services;
 using BookMyShowWebAPI.Service;
 
 namespace BookMyShowWebAPI.Controllers
@@ -14,25 +15,25 @@ namespace BookMyShowWebAPI.Controllers
     [ApiController]
     public class TheaterController : ControllerBase
     {
-        private readonly ITheaterService theater;
+        private readonly ITheaterService Theater;
 
         public TheaterController(ITheaterService theater)
         {
-            this.theater = theater;
+            this.Theater = theater;
         }
 
         // GET: api/Theater
         [HttpGet]
         public IEnumerable<Theater> GetTheaters()
         {
-            return theater.GetTheaters();
+            return Theater.GetTheaters();
         }
 
         // GET: api/Theater/5
         [HttpGet("{id}")]
         public Theater GetTheater(int id)
         {
-            return theater.GetTheaterById(id);
+            return Theater.GetTheater(id);
         }
     }
 }

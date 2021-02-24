@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookMyShowWebAPI.Service
+namespace BookMyShowWebAPI.Services
 {
     public interface IScreenService
     {
-        public List<Screen> GetScreens();
-        public Screen GetScreenById(int id);
+        public IEnumerable<Screen> GetScreens();
+        public Screen GetScreen(int id);
         public object GetSeatsByTheater(int theaterId);
     }
 }

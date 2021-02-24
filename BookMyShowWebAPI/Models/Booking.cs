@@ -14,6 +14,6 @@ namespace BookMyShowWebAPI.Models
         public int ShowId { get; set; }
         public int TicketPrice { get; set; }
         public int SeatNumber { get; set; }
-        public DateTime BookingDate { get; set; }
+        public DateTime Date { get; set; }
     }
 }

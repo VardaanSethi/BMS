@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookMyShowWebAPI.Models;
-using BookMyShowWebAPI.Service;
+using BookMyShowWebAPI.Services;
 
 namespace BookMyShowWebAPI.Controllers
 {
@@ -14,32 +14,31 @@ namespace BookMyShowWebAPI.Controllers
     [ApiController]
     public class ScreenController : ControllerBase
     {
-        private readonly IScreenService screen;
+        private readonly IScreenService Screen;
 
         public ScreenController(IScreenService screen)
         {
-            this.screen = screen;
+            this.Screen = screen;
         }
 
         // GET: api/Screen
         [HttpGet]
         public IEnumerable<Screen> GetScreens()
         {
-            return screen.GetScreens();
+            return Screen.GetScreens();
         }
 
         // GET: api/Screen/5
         [HttpGet("{id}")]
         public Screen GetScreen(int id)
         {
-            return screen.GetScreenById(id);
+            return Screen.GetScreen(id);
         }
 
-        [Route("seatsbytheater/{theaterId}")]
-        [HttpGet]
+        [HttpGet("theater/{theaterId}")]
         public IActionResult GetSeatsByTheater(int theaterId)
         {
-            return Ok(screen.GetSeatsByTheater(theaterId));
+            return Ok(Screen.GetSeatsByTheater(theaterId));
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookMyShowWebAPI.Service
+namespace BookMyShowWebAPI.Services
 {
     public class MovieService : IMovieService
     {
@@ -17,18 +17,14 @@ namespace BookMyShowWebAPI.Service
         {
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
         }
-        public Movie GetMovieById(int id)
+        public Movie GetMovie(int id)
         {
-            var sql = "SELECT * FROM Movies WHERE MovieId = @id";
-            var movie = db.Query<Movie>(sql, new { id = id }).FirstOrDefault();
-            return movie;
+            return db.Query<Movie>("SELECT * FROM Movies WHERE Id = @id", new { id = id }).SingleOrDefault();
         }
 
-        public List<Movie> GetMovies()
+        public IEnumerable<Movie> GetMovies()
         {
-            var sql = "SELECT * FROM Movies";
-            var movieList = db.Query<Movie>(sql).ToList();
-            return movieList;
+            return db.Query<Movie>("SELECT * FROM Movies");
         }
     }
 }

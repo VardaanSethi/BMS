@@ -1,16 +1,13 @@
 ﻿using BookMyShowWebAPI.Models;
 using Dapper;
 using Dapper.Contrib.Extensions;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace BookMyShowWebAPI.Service
+namespace BookMyShowWebAPI.Services
 {
     public class BookingService : IBookingService
     {
@@ -19,17 +16,13 @@ namespace BookMyShowWebAPI.Service
         {
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
         }
-        public Booking GetBookingById(int bookingId)
+        public Booking GetBooking(int bookingId)
         {
-            var sql = "SELECT * FROM Bookings WHERE BookingId = @bookingId";
-            var booking = db.Query<Booking>(sql, new { bookingId }).FirstOrDefault();
-            return booking;
+            return db.Query<Booking>("SELECT * FROM Bookings WHERE Id = @bookingId", new { bookingId }).SingleOrDefault();
         }
-        public List<Booking> GetBookings()
+        public IEnumerable<Booking> GetBookings()
         {
-            var sql = "SELECT * FROM Bookings";
-            var bookingList = db.Query<Booking>(sql).ToList();
-            return bookingList;
+            return db.Query<Booking>("SELECT * FROM Bookings");
         }
         public int PostBooking(Booking booking)
         {

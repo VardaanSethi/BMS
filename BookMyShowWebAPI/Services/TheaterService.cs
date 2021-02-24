@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using BookMyShowWebAPI.Service;
 
-namespace BookMyShowWebAPI.Service
+namespace BookMyShowWebAPI.Services
 {
     public class TheaterService : ITheaterService
     {
@@ -17,18 +18,14 @@ namespace BookMyShowWebAPI.Service
         {
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
         }
-        public Theater GetTheaterById(int id)
+        public Theater GetTheater(int id)
         {
-            var sql = "SELECT * FROM Theaters WHERE TheaterId = @id";
-            var theater = db.Query<Theater>(sql, new { bookingId = id }).FirstOrDefault();
-            return theater;
+            return db.Query<Theater>("SELECT * FROM Theaters WHERE Id = @id", new { id = id }).SingleOrDefault();
         }
 
-        public List<Theater> GetTheaters()
+        public IEnumerable<Theater> GetTheaters()
         {
-            var sql = "SELECT * FROM Theaters";
-            var theaterList = db.Query<Theater>(sql).ToList();
-            return theaterList;
+            return db.Query<Theater>("SELECT * FROM Theaters");
         }
     }
 }
