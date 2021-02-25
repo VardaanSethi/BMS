@@ -23,7 +23,7 @@ namespace BookMyShowWebAPI.Controllers
 
         // GET: api/Booking
         [HttpGet]
-        public IEnumerable<Booking> GetBookings()
+        public IEnumerable<BookingModel> GetBookings()
         {
             return Booking.GetBookings();
         }
@@ -37,7 +37,7 @@ namespace BookMyShowWebAPI.Controllers
 
         // POST: api/Booking
         [HttpPost]
-        public IActionResult PostBooking(Booking booking)
+        public IActionResult PostBooking(BookingModel booking)
         {
             return Ok(this.Booking.PostBooking(booking));
         }

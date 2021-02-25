@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "24/LpQxp4/M+NtU6tKGVYydZj71SEAn0DnNSfOf7khkfL6nCOT0fLCsOIXO+dKU922llvxZCGb1XzaVbM+Gb3g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Vardaan.s\\source\\repos\\BookMyShowWebAPI\\BookMyShow.Models\\BookMyShow.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vardaan.s\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
+    "C:\\Users\\Vardaan.s\\.nuget\\packages\\dapper.contrib\\2.0.78\\dapper.contrib.2.0.78.nupkg.sha512",
+    "C:\\Users\\Vardaan.s\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Vardaan.s\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\Vardaan.s\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\Vardaan.s\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.7.0\\system.reflection.emit.ilgeneration.4.7.0.nupkg.sha512",
+    "C:\\Users\\Vardaan.s\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

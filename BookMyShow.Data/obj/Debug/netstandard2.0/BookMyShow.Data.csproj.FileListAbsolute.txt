@@ -1,0 +1,9 @@
+C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.Data\obj\Debug\netstandard2.0\BookMyShow.Data.AssemblyInfoInputs.cache
+C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.Data\obj\Debug\netstandard2.0\BookMyShow.Data.AssemblyInfo.cs
+C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.Data\obj\Debug\netstandard2.0\BookMyShow.Data.csproj.CoreCompileInputs.cache
+C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.Data\bin\Debug\netstandard2.0\BookMyShow.Data.deps.json
+C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.Data\bin\Debug\netstandard2.0\BookMyShow.Data.dll
+C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.Data\bin\Debug\netstandard2.0\BookMyShow.Data.pdb
+C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.Data\obj\Debug\netstandard2.0\BookMyShow.Data.dll
+C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.Data\obj\Debug\netstandard2.0\BookMyShow.Data.pdb
+C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.Data\obj\Debug\netstandard2.0\BookMyShow.Data.csprojAssemblyReference.cache

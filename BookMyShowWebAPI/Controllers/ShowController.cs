@@ -23,14 +23,14 @@ namespace BookMyShowWebAPI.Controllers
 
         // GET: api/Show
         [HttpGet]
-        public IEnumerable<Show> GetShows()
+        public IEnumerable<ShowModel> GetShows()
         {
             return Show.GetShows();
         }
 
         // GET: api/Show/5
         [HttpGet("{id}")]
-        public Show GetShow(int id)
+        public ShowModel GetShow(int id)
         {
             return Show.GetShow(id);
         }

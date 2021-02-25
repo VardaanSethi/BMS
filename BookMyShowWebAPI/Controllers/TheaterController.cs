@@ -24,14 +24,14 @@ namespace BookMyShowWebAPI.Controllers
 
         // GET: api/Theater
         [HttpGet]
-        public IEnumerable<Theater> GetTheaters()
+        public IEnumerable<TheaterModel> GetTheaters()
         {
             return Theater.GetTheaters();
         }
 
         // GET: api/Theater/5
         [HttpGet("{id}")]
-        public Theater GetTheater(int id)
+        public TheaterModel GetTheater(int id)
         {
             return Theater.GetTheater(id);
         }

@@ -23,14 +23,14 @@ namespace BookMyShowWebAPI.Controllers
 
         // GET: api/Movie
         [HttpGet]
-        public IEnumerable<Movie> GetMovies()
+        public IEnumerable<MovieModel> GetMovies()
         {
             return Movie.GetMovies();
         }
 
         // GET: api/Movie/5
         [HttpGet("{id}")]
-        public Movie GetMovie(int id)
+        public MovieModel GetMovie(int id)
         {
             return Movie.GetMovie(id);
         }
