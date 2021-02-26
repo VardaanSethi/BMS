@@ -25,7 +25,7 @@ namespace BookMyShowWebAPI.Services
         public Movie GetMovie(int id)
         {
             return this.Mapper.Map<Movie>
-                (this.db.Query<DataModel.Movie>("SELECT * FROM Movies WHERE Id = @id", new { id = id }).SingleOrDefault());
+                (this.db.Query<DataModel.Movie>($"SELECT * FROM Movies WHERE Id = {id}").SingleOrDefault());
         }
 
         public IEnumerable<Movie> GetMovies()

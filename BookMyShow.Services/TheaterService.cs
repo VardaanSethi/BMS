@@ -26,7 +26,7 @@ namespace BookMyShowWebAPI.Services
         public Theater GetTheater(int id)
         {
             return this.Mapper.Map<Theater>
-                (this.db.Query<DataModel.Theater>("SELECT * FROM Theaters WHERE Id = @id", new { id = id }).SingleOrDefault());
+                (this.db.Query<DataModel.Theater>($"SELECT * FROM Theaters WHERE Id = {id}").SingleOrDefault());
         }
 
         public IEnumerable<Theater> GetTheaters()

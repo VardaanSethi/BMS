@@ -31,7 +31,7 @@ namespace BookMyShowWebAPI.Services
             return this.Mapper.Map<IEnumerable<Booking>>
                 (this.db.Query<DataModel.Booking>("SELECT * FROM Bookings"));
         }
-        public int PostBooking(Models.Booking booking)
+        public int PostBooking(Booking booking)
         {
             return (int)this.db.Insert(booking);
         }

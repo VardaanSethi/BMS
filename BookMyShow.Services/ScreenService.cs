@@ -25,7 +25,7 @@ namespace BookMyShowWebAPI.Services
         public Screen GetScreen(int id)
         {
             return this.Mapper.Map<Screen>
-                (this.db.Query<DataModel.Screen>("SELECT * FROM Screens WHERE Id = @id", new { id = id }).SingleOrDefault());
+                (this.db.Query<DataModel.Screen>($"SELECT * FROM Screens WHERE Id = {id}").SingleOrDefault());
         }
 
         public IEnumerable<Screen> GetScreens()
@@ -36,7 +36,7 @@ namespace BookMyShowWebAPI.Services
 
         public object GetSeatsByTheater(int theaterId)
         {
-            return db.Query<object>("SELECT NoOfSeats FROM Screens WHERE Id = @theaterId", new { theaterId = theaterId }).SingleOrDefault();
+            return db.Query<object>($"SELECT NoOfSeats FROM Screens WHERE Id = {theaterId}").SingleOrDefault();
         }
     }
 }
