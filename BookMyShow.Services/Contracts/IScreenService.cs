@@ -10,6 +10,6 @@ namespace BookMyShowWebAPI.Services
     {
         IEnumerable<Screen> GetScreens();
         Screen GetScreen(int id);
-        object GetSeatsByTheater(int theaterId);
+        Screen GetSeatsByTheater(int theaterId);
     }
 }

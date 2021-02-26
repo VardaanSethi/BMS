@@ -15,23 +15,23 @@ namespace BookMyShowWebAPI.Services
     public class MovieService : IMovieService
     {
         private readonly IDbConnection db;
-        private readonly IMapper Mapper;
 
-        public MovieService(IConfiguration configuration, IMapper mapper)
+        public MovieService(IConfiguration configuration)
         {
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
-            this.Mapper = mapper;
         }
         public Movie GetMovie(int id)
         {
-            return this.Mapper.Map<Movie>
-                (this.db.Query<DataModel.Movie>($"SELECT * FROM Movies WHERE Id = {id}").SingleOrDefault());
+            /*return this.Mapper.Map<Movie>
+                (this.db.Query<DataModel.Movie>($"SELECT * FROM Movies WHERE Id = {id}").SingleOrDefault());*/
+            return this.db.Query<DataModel.Movie>($"SELECT * FROM Movies WHERE Id = {id}").SingleOrDefault().MapTo<DataModel.Movie, Movie>();
         }
 
         public IEnumerable<Movie> GetMovies()
         {
-            return this.Mapper.Map<IEnumerable<Movie>>
-                (this.db.Query<DataModel.Movie>("SELECT * FROM Movies"));
+            /*return this.Mapper.Map<IEnumerable<Movie>>
+                (this.db.Query<DataModel.Movie>("SELECT * FROM Movies"));*/
+            return this.db.Query<IEnumerable<DataModel.Movie>>("SELECT * FROM Movies").MapAllTo<IEnumerable<DataModel.Movie>, Movie>();
         }
     }
 }

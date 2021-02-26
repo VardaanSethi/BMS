@@ -14,22 +14,22 @@ namespace BookMyShowWebAPI.Services
     public class BookingService : IBookingService
     {
         private readonly IDbConnection db;
-        private readonly IMapper Mapper;
 
-        public BookingService(IConfiguration configuration,IMapper mapper)
+        public BookingService(IConfiguration configuration)
         {
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
-            this.Mapper = mapper;
         }
         public Booking GetBooking(int bookingId)
         {
-            return this.Mapper.Map<Booking>
-                (this.db.Query<DataModel.Booking>($"SELECT * FROM Bookings WHERE Id = {0}", bookingId).SingleOrDefault());
+            /*return this.Mapper.Map<Booking>
+                (this.db.Query<DataModel.Booking>($"SELECT * FROM Bookings WHERE Id = {0}", bookingId).SingleOrDefault());*/
+            return this.db.Query<DataModel.Booking>($"SELECT * FROM Bookings WHERE Id = {0}", bookingId).SingleOrDefault().MapTo<DataModel.Booking, Booking>();
         }
         public IEnumerable<Booking> GetBookings()
         {
-            return this.Mapper.Map<IEnumerable<Booking>>
-                (this.db.Query<DataModel.Booking>("SELECT * FROM Bookings"));
+            /*return this.Mapper.Map<IEnumerable<Booking>>
+                (this.db.Query<DataModel.Booking>("SELECT * FROM Bookings"));*/
+            return this.db.Query<IEnumerable<DataModel.Booking>>("SELECT * FROM Bookings").MapAllTo<IEnumerable<DataModel.Booking>, Booking>();
         }
         public int PostBooking(Booking booking)
         {

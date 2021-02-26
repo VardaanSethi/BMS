@@ -15,28 +15,29 @@ namespace BookMyShowWebAPI.Services
     public class ScreenService : IScreenService
     {
         private readonly IDbConnection db;
-        private readonly IMapper Mapper;
 
-        public ScreenService(IConfiguration configuration, IMapper mapper)
+        public ScreenService(IConfiguration configuration)
         {
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
-            this.Mapper = mapper;
         }
         public Screen GetScreen(int id)
         {
-            return this.Mapper.Map<Screen>
-                (this.db.Query<DataModel.Screen>($"SELECT * FROM Screens WHERE Id = {id}").SingleOrDefault());
+            /*return this.Mapper.Map<Screen>
+                (this.db.Query<DataModel.Screen>($"SELECT * FROM Screens WHERE Id = {id}").SingleOrDefault());*/
+            return this.db.Query<DataModel.Screen>($"SELECT * FROM Screens WHERE Id = {id}").SingleOrDefault().MapTo<DataModel.Screen, Screen>();
         }
 
         public IEnumerable<Screen> GetScreens()
         {
-            return this.Mapper.Map<IEnumerable<Screen>>
-                (this.db.Query<DataModel.Screen>("SELECT * FROM Screens"));
+            /*return this.Mapper.Map<IEnumerable<Screen>>
+                (this.db.Query<DataModel.Screen>("SELECT * FROM Screens"));*/
+            return this.db.Query<IEnumerable<DataModel.Screen>>("SELECT * FROM Screens").MapAllTo<IEnumerable<DataModel.Screen>, Screen>();
         }
 
-        public object GetSeatsByTheater(int theaterId)
+        public Screen GetSeatsByTheater(int theaterId)
         {
-            return db.Query<object>($"SELECT NoOfSeats FROM Screens WHERE Id = {theaterId}").SingleOrDefault();
+            /*return db.Query<Screen>($"SELECT NoOfSeats FROM Screens WHERE Id = {theaterId}").SingleOrDefault();*/
+            return this.db.Query<DataModel.Screen>($"SELECT NoOfSeats FROM Screens WHERE Id = {theaterId}").SingleOrDefault().MapTo<DataModel.Screen, Screen>();
         }
     }
 }

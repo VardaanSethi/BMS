@@ -20,6 +20,7 @@ namespace BookMyShowWebAPI
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -30,7 +31,8 @@ namespace BookMyShowWebAPI
             services.AddSingleton<IShowService, ShowService>();
             services.AddSingleton<IBookingService, BookingService>();
 
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+           // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            this.InitializeAutoMapper();
 
             services.AddCors(opt =>
             {
@@ -66,5 +68,13 @@ namespace BookMyShowWebAPI
                 endpoints.MapControllers();
             });
         }
+        [Obsolete]
+        public void InitializeAutoMapper()
+        {
+            Mapper.Initialize(x =>
+                x.AddProfile<BookMyShow.AutoMapperProfile>()
+                );
+        }
     }
+    
 }
