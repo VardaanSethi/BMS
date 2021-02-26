@@ -8,7 +8,7 @@ namespace BookMyShowWebAPI.Services
 {
     public interface IMovieService
     {
-        IEnumerable<MovieModel> GetMovies();
-        MovieModel GetMovie(int id);
+        IEnumerable<Movie> GetMovies();
+        Movie GetMovie(int id);
     }
 }

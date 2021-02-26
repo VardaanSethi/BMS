@@ -8,8 +8,8 @@ namespace BookMyShowWebAPI.Services
 {
     public interface IShowService
     {
-        IEnumerable<ShowModel> GetShows();
-        ShowModel GetShow(int id);
+        IEnumerable<Show> GetShows();
+        Show GetShow(int id);
         IEnumerable<object> ShowsListByTheater(int theaterId, int movieId);
     }
 }

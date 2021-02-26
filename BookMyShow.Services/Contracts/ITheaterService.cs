@@ -8,7 +8,7 @@ namespace BookMyShowWebAPI.Service
 {
     public interface ITheaterService
     {
-        IEnumerable<TheaterModel> GetTheaters();
-        TheaterModel GetTheater(int id);
+        IEnumerable<Theater> GetTheaters();
+        Theater GetTheater(int id);
     }
 }

@@ -23,14 +23,14 @@ namespace BookMyShowWebAPI.Controllers
 
         // GET: api/Screen
         [HttpGet]
-        public IEnumerable<ScreenModel> GetScreens()
+        public IEnumerable<Screen> GetScreens()
         {
             return Screen.GetScreens();
         }
 
         // GET: api/Screen/5
         [HttpGet("{id}")]
-        public ScreenModel GetScreen(int id)
+        public Screen GetScreen(int id)
         {
             return Screen.GetScreen(id);
         }

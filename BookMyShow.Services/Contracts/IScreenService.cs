@@ -8,8 +8,8 @@ namespace BookMyShowWebAPI.Services
 {
     public interface IScreenService
     {
-        IEnumerable<ScreenModel> GetScreens();
-        ScreenModel GetScreen(int id);
+        IEnumerable<Screen> GetScreens();
+        Screen GetScreen(int id);
         object GetSeatsByTheater(int theaterId);
     }
 }

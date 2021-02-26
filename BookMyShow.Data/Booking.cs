@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookMyShowWebAPI.Data
 {
-    [Table("Bookings")]
-    public class BookingDataModel
+    [Table("Booking")]
+    public class Booking
     {
         public int TheaterId { get; set; }
         public int ShowId { get; set; }

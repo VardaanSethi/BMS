@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using BookMyShowWebAPI.Data;
 using BookMyShowWebAPI.Models;
+using DataModel = BookMyShowWebAPI.Data;
 
 namespace BookMyShow
 {
@@ -8,20 +8,20 @@ namespace BookMyShow
     {
         public AutoMapperProfile()
         {
-            CreateMap<ShowModel, ShowDataModel>();
-            CreateMap<ShowDataModel, ShowModel>();
+            CreateMap<Show, DataModel.Show>();
+            CreateMap<DataModel.Show, Show>();
 
-            CreateMap<BookingModel, BookingDataModel>();
-            CreateMap<BookingDataModel, BookingModel>();
+            CreateMap<Booking, DataModel.Booking>();
+            CreateMap<DataModel.Booking, Booking>();
 
-            CreateMap<ScreenModel, ScreenDataModel>();
-            CreateMap<ScreenDataModel, ScreenModel>();
+            CreateMap<Screen, DataModel.Screen>();
+            CreateMap<DataModel.Screen, Screen>();
 
-            CreateMap<MovieModel, MovieDataModel>();
-            CreateMap<MovieDataModel, MovieModel>();
+            CreateMap<Movie, DataModel.Movie>();
+            CreateMap<DataModel.Movie, Movie>();
 
-            CreateMap<TheaterModel, TheaterDataModel>();
-            CreateMap<TheaterDataModel, TheaterModel>();
+            CreateMap<Theater, DataModel.Theater>();
+            CreateMap<DataModel.Theater, Theater>();
         }
     }
 }

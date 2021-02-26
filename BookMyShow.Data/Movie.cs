@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BookMyShowWebAPI.Data
 {
-    public class ScreenDataModel
+    public class Movie
     {
         [Key]
         public int Id { get; set; }
-        public int TheaterId { get; set; }
-        public int MovieId { get; set; }
-        public int NoOfSeats { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Language { get; set; }
     }
 }

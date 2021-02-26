@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BookMyShowWebAPI.Data;
+using DataModel = BookMyShowWebAPI.Data;
 using BookMyShowWebAPI.Models;
 using Dapper;
 using Microsoft.Extensions.Configuration;
@@ -22,16 +22,16 @@ namespace BookMyShowWebAPI.Services
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
             this.Mapper = mapper;
         }
-        public ScreenModel GetScreen(int id)
+        public Screen GetScreen(int id)
         {
-            return this.Mapper.Map<ScreenModel>
-                (this.db.Query<ScreenDataModel>("SELECT * FROM Screens WHERE Id = @id", new { id = id }).SingleOrDefault());
+            return this.Mapper.Map<Screen>
+                (this.db.Query<DataModel.Screen>("SELECT * FROM Screens WHERE Id = @id", new { id = id }).SingleOrDefault());
         }
 
-        public IEnumerable<ScreenModel> GetScreens()
+        public IEnumerable<Screen> GetScreens()
         {
-            return this.Mapper.Map<IEnumerable<ScreenModel>>
-                (this.db.Query<ScreenDataModel>("SELECT * FROM Screens"));
+            return this.Mapper.Map<IEnumerable<Screen>>
+                (this.db.Query<DataModel.Screen>("SELECT * FROM Screens"));
         }
 
         public object GetSeatsByTheater(int theaterId)

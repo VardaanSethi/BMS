@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BookMyShowWebAPI.Data;
+using DataModel = BookMyShowWebAPI.Data;
 using BookMyShowWebAPI.Models;
 using Dapper;
 using Dapper.Contrib.Extensions;
@@ -21,17 +21,17 @@ namespace BookMyShowWebAPI.Services
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
             this.Mapper = mapper;
         }
-        public BookingModel GetBooking(int bookingId)
+        public Booking GetBooking(int bookingId)
         {
-            return this.Mapper.Map<BookingModel>
-                (this.db.Query<BookingDataModel>("SELECT * FROM Bookings WHERE Id = @bookingId", new { bookingId }).SingleOrDefault());
+            return this.Mapper.Map<Booking>
+                (this.db.Query<DataModel.Booking>($"SELECT * FROM Bookings WHERE Id = {0}", bookingId).SingleOrDefault());
         }
-        public IEnumerable<BookingModel> GetBookings()
+        public IEnumerable<Booking> GetBookings()
         {
-            return this.Mapper.Map<IEnumerable<BookingModel>>
-                (this.db.Query<BookingDataModel>("SELECT * FROM Bookings"));
+            return this.Mapper.Map<IEnumerable<Booking>>
+                (this.db.Query<DataModel.Booking>("SELECT * FROM Bookings"));
         }
-        public int PostBooking(BookingModel booking)
+        public int PostBooking(Models.Booking booking)
         {
             return (int)this.db.Insert(booking);
         }

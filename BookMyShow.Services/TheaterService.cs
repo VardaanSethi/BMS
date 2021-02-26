@@ -9,7 +9,7 @@ using System.Data;
 using BookMyShowWebAPI.Service;
 using System.Data.SqlClient;
 using AutoMapper;
-using BookMyShowWebAPI.Data;
+using DataModel = BookMyShowWebAPI.Data;
 
 namespace BookMyShowWebAPI.Services
 {
@@ -23,15 +23,15 @@ namespace BookMyShowWebAPI.Services
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
             this.Mapper = mapper;
         }
-        public TheaterModel GetTheater(int id)
+        public Theater GetTheater(int id)
         {
-            return this.Mapper.Map<TheaterModel>
-                (this.db.Query<TheaterDataModel>("SELECT * FROM Theaters WHERE Id = @id", new { id = id }).SingleOrDefault());
+            return this.Mapper.Map<Theater>
+                (this.db.Query<DataModel.Theater>("SELECT * FROM Theaters WHERE Id = @id", new { id = id }).SingleOrDefault());
         }
 
-        public IEnumerable<TheaterModel> GetTheaters()
+        public IEnumerable<Theater> GetTheaters()
         {
-            return this.Mapper.Map<IEnumerable<TheaterModel>>(this.db.Query<TheaterDataModel>("SELECT * FROM Theaters"));
+            return this.Mapper.Map<IEnumerable<Models.Theater>>(this.db.Query<DataModel.Theater >("SELECT * FROM Theaters"));
         }
     }
 }

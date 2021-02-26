@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BookMyShowWebAPI.Data;
+using DataModel = BookMyShowWebAPI.Data;
 using BookMyShowWebAPI.Models;
 using Dapper;
 using Microsoft.Extensions.Configuration;
@@ -22,16 +22,16 @@ namespace BookMyShowWebAPI.Services
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
             this.Mapper = mapper;
         }
-        public MovieModel GetMovie(int id)
+        public Movie GetMovie(int id)
         {
-            return this.Mapper.Map<MovieModel>
-                (this.db.Query<MovieDataModel>("SELECT * FROM Movies WHERE Id = @id", new { id = id }).SingleOrDefault());
+            return this.Mapper.Map<Movie>
+                (this.db.Query<DataModel.Movie>("SELECT * FROM Movies WHERE Id = @id", new { id = id }).SingleOrDefault());
         }
 
-        public IEnumerable<MovieModel> GetMovies()
+        public IEnumerable<Movie> GetMovies()
         {
-            return this.Mapper.Map<IEnumerable<MovieModel>>
-                (this.db.Query<MovieDataModel>("SELECT * FROM Movies"));
+            return this.Mapper.Map<IEnumerable<Movie>>
+                (this.db.Query<DataModel.Movie>("SELECT * FROM Movies"));
         }
     }
 }

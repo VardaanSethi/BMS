@@ -4,14 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookMyShowWebAPI.Models
+namespace BookMyShowWebAPI.Data
 {
-    public class ShowModel
+    public class Theater
     {
         [Key]
         public int Id { get; set; }
-        public int TheaterId { get; set; }
-        public DateTime Timing { get; set; }
-        public int MovieId { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public int NoOfScreens { get; set; }
     }
 }
