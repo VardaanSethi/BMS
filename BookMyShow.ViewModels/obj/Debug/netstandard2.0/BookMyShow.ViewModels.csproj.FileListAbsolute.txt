@@ -1,8 +1,0 @@
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.ViewModels\bin\Debug\netstandard2.0\BookMyShow.ViewModels.deps.json
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.ViewModels\bin\Debug\netstandard2.0\BookMyShow.ViewModels.dll
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.ViewModels\bin\Debug\netstandard2.0\BookMyShow.ViewModels.pdb
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.ViewModels\obj\Debug\netstandard2.0\BookMyShow.ViewModels.AssemblyInfoInputs.cache
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.ViewModels\obj\Debug\netstandard2.0\BookMyShow.ViewModels.AssemblyInfo.cs
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.ViewModels\obj\Debug\netstandard2.0\BookMyShow.ViewModels.csproj.CoreCompileInputs.cache
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.ViewModels\obj\Debug\netstandard2.0\BookMyShow.ViewModels.dll
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShow.ViewModels\obj\Debug\netstandard2.0\BookMyShow.ViewModels.pdb
