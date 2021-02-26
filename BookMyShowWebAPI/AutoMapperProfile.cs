@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BookMyShow.Models.ViewModel;
 using BookMyShowWebAPI.Models;
 using DataModel = BookMyShowWebAPI.Data;
 
@@ -10,6 +11,9 @@ namespace BookMyShow
         {
             CreateMap<Show, DataModel.Show>();
             CreateMap<DataModel.Show, Show>();
+
+            CreateMap<Show, ShowView>();
+            CreateMap<ShowView, Show>();
 
             CreateMap<Booking, DataModel.Booking>();
             CreateMap<DataModel.Booking, Booking>();

@@ -159,14 +159,6 @@ C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5
 C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\Dapper.dll
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\ClientApp\angular.json
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\ClientApp\e2e\tsconfig.json
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\ClientApp\package-lock.json
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\ClientApp\package.json
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\ClientApp\tsconfig.app.json
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\ClientApp\tsconfig.json
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\ClientApp\tsconfig.spec.json
-C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\ClientApp\tslint.json
 C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\Dapper.Contrib.dll
 C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\package-lock.json
 C:\Users\Vardaan.s\source\repos\BookMyShowWebAPI\BookMyShowWebAPI\bin\Debug\net5.0\System.Data.SqlClient.dll

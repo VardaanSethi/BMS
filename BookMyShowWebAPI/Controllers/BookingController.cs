@@ -30,16 +30,16 @@ namespace BookMyShowWebAPI.Controllers
 
         // GET: api/Booking/5
         [HttpGet("{id}")]
-        public IActionResult GetBooking(int id)
+        public Booking GetBooking(int id)
         {
-            return Ok (Booking.GetBooking(id));
+            return Booking.GetBooking(id);
         }
 
         // POST: api/Booking
         [HttpPost]
-        public IActionResult PostBooking(Booking booking)
+        public int PostBooking(Booking booking)
         {
-            return Ok(this.Booking.PostBooking(booking));
+            return this.Booking.PostBooking(booking);
         }
     }
 }

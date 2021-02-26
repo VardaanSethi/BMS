@@ -36,9 +36,9 @@ namespace BookMyShowWebAPI.Controllers
         }
 
         [HttpGet("theater/{theaterId}/movie/{movieId}")]
-        public IActionResult ShowsByTheater(int theaterId, int movieId)
+        public IEnumerable<Show> ShowsByTheater(int theaterId, int movieId)
         {
-            return Ok(Show.ShowsListByTheater(theaterId, movieId));
+            return Show.GetShowsListByTheater(theaterId, movieId);
         }
     }
 }

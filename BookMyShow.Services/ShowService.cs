@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using BookMyShow.Models.ViewModel;
 
 namespace BookMyShowWebAPI.Services
 {
@@ -20,10 +21,10 @@ namespace BookMyShowWebAPI.Services
             this.db = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
             this.Mapper = mapper;
         }
-        public IEnumerable<object> ShowsListByTheater (int theaterId, int movieId)
+        public IEnumerable<Show> GetShowsListByTheater (int theaterId, int movieId)
         {
-            return this.Mapper.Map<IEnumerable<object>>
-                (db.Query<object>($"SELECT * FROM GetShowsByTheater WHERE TheaterId = {theaterId} AND MovieId = {movieId}"));
+            return this.Mapper.Map<IEnumerable<Show>>
+                (db.Query<ShowView>($"SELECT * FROM GetShowsByTheater WHERE TheaterId = {theaterId} AND MovieId = {movieId}"));
         }
         public Show GetShow(int id)
         {

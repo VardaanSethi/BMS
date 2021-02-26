@@ -17,10 +17,10 @@
         </tr>
         <tbody>
             <tr *ngFor="let selectedShow of showsByTheater">
-                <td>{{selectedShow.Id}}</td>
-                <td>{{selectedShow.Timing | date:"short" }}</td>
+                <td>{{selectedShow.id}}</td>
+                <td>{{selectedShow.timing | date:"short" }}</td>
                 <td> <button class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#ticketSelection"
-                        (click)="getShowDetails(selectedShow.Id, selectedShow.Timing)">Book</button> </td>
+                        (click)="getShowDetails(selectedShow.id, selectedShow.timing)">Book</button> </td>
             </tr>
         </tbody>
     </table>

@@ -51,7 +51,6 @@ export class ShowTheaterComponent implements OnInit {
     this.showsService.getShowsByTheater(this.selectedTheaterId, this.movieId).subscribe(
       data => {
         this.showsByTheater = data;
-        console.log(this.showsByTheater);
         this.isAvailableShows = true;
       }
     )
@@ -67,7 +66,6 @@ export class ShowTheaterComponent implements OnInit {
   }
 
   bookingTicket(selectedSeatId, ticketPrice) {
-    console.log(this.selectedTheaterId, this.selectedShowId, selectedSeatId * ticketPrice, this.selectedShowTime );
     var booking = new Booking({theaterId : this.selectedTheaterId, 
                                showId : this.selectedShowId, 
                                ticketPrice : selectedSeatId * ticketPrice, 

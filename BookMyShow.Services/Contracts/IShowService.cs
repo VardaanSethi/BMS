@@ -10,6 +10,6 @@ namespace BookMyShowWebAPI.Services
     {
         IEnumerable<Show> GetShows();
         Show GetShow(int id);
-        IEnumerable<object> ShowsListByTheater(int theaterId, int movieId);
+        IEnumerable<Show> GetShowsListByTheater(int theaterId, int movieId);
     }
 }
