@@ -31,7 +31,7 @@ namespace BookMyShowWebAPI.Services
         {
             /*return this.Mapper.Map<IEnumerable<Movie>>
                 (this.db.Query<DataModel.Movie>("SELECT * FROM Movies"));*/
-            return this.db.Query<IEnumerable<DataModel.Movie>>("SELECT * FROM Movies").MapAllTo<IEnumerable<DataModel.Movie>, Movie>();
+            return this.db.Query<DataModel.Movie>("SELECT * FROM Movies").MapAllTo<IEnumerable<DataModel.Movie>, Movie>();
         }
     }
 }

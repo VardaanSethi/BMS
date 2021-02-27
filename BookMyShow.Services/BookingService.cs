@@ -29,7 +29,7 @@ namespace BookMyShowWebAPI.Services
         {
             /*return this.Mapper.Map<IEnumerable<Booking>>
                 (this.db.Query<DataModel.Booking>("SELECT * FROM Bookings"));*/
-            return this.db.Query<IEnumerable<DataModel.Booking>>("SELECT * FROM Bookings").MapAllTo<IEnumerable<DataModel.Booking>, Booking>();
+            return this.db.Query<DataModel.Booking>("SELECT * FROM Bookings").MapAllTo<IEnumerable<DataModel.Booking>, Booking>();
         }
         public int PostBooking(Booking booking)
         {

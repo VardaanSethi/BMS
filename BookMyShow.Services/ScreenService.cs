@@ -31,7 +31,7 @@ namespace BookMyShowWebAPI.Services
         {
             /*return this.Mapper.Map<IEnumerable<Screen>>
                 (this.db.Query<DataModel.Screen>("SELECT * FROM Screens"));*/
-            return this.db.Query<IEnumerable<DataModel.Screen>>("SELECT * FROM Screens").MapAllTo<IEnumerable<DataModel.Screen>, Screen>();
+            return this.db.Query<DataModel.Screen>("SELECT * FROM Screens").MapAllTo<IEnumerable<DataModel.Screen>, Screen>();
         }
 
         public Screen GetSeatsByTheater(int theaterId)

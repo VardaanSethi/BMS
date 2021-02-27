@@ -31,7 +31,7 @@ namespace BookMyShowWebAPI.Services
         public IEnumerable<Theater> GetTheaters()
         {
             /*return this.Mapper.Map<IEnumerable<Theater>>(this.db.Query<DataModel.Theater >("SELECT * FROM Theaters"));*/
-            return this.db.Query<IEnumerable<DataModel.Theater>>("SELECT * FROM Theaters").MapAllTo<IEnumerable<DataModel.Theater>, Theater>();
+            return this.db.Query<DataModel.Theater>("SELECT * FROM Theaters").MapAllTo<IEnumerable<DataModel.Theater>, Theater>();
         }
     }
 
@@ -42,7 +42,7 @@ namespace BookMyShowWebAPI.Services
             return Mapper.Map<D>(data);
         }
 
-        public static IEnumerable<D> MapAllTo<S, D>(this IEnumerable<S> data)
+        public static IEnumerable<D> MapAllTo<S, D>(this S data)
         {
             return Mapper.Map<IEnumerable<D>>(data);
         }

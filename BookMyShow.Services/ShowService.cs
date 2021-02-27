@@ -23,7 +23,7 @@ namespace BookMyShowWebAPI.Services
         {
             /*return this.Mapper.Map<IEnumerable<Show>>
                 (db.Query<ShowView>($"SELECT * FROM GetShowsByTheater WHERE TheaterId = {theaterId} AND MovieId = {movieId}"));*/
-            return this.db.Query<IEnumerable<ShowView>>($"SELECT * FROM GetShowsByTheater WHERE TheaterId = {theaterId} AND MovieId = {movieId}").MapAllTo<IEnumerable<ShowView>, Show>();
+            return this.db.Query<ShowView>($"SELECT * FROM GetShowsByTheater WHERE TheaterId = {theaterId} AND MovieId = {movieId}").MapAllTo<IEnumerable<ShowView>, Show>();
         }
         public Show GetShow(int id)
         {
@@ -36,7 +36,7 @@ namespace BookMyShowWebAPI.Services
         {
             /*return this.Mapper.Map<IEnumerable<Show>>
                 (this.db.Query<DataModel.Show>("SELECT * FROM Shows"));*/
-            return this.db.Query<IEnumerable<DataModel.Show>>("SELECT * FROM Shows").MapAllTo<IEnumerable<DataModel.Show>, Show>();
+            return this.db.Query<DataModel.Show>("SELECT * FROM Shows").MapAllTo<IEnumerable<DataModel.Show>, Show>();
 
         }
     }
